@@ -23,34 +23,27 @@ class room23 extends LevelRoom {
 				let newP = this.addObject(new Bubble(startMargin + j * planetDistance, 200 + i * planetDistance, newTeam));
 				newP.groesse = (i == 1) ? 2 : 1;
 				newP.einheiten = jellyAmount;
-				this.planetlist[i * itemsInRow + j] = newP;
+				this.bubbles[i * itemsInRow + j] = newP;
 			}
 
 		let pushOut = 70
-		// (jellyAmount * nrPlanets / bubbleAmount) factor
 		jellyAmount = Math.ceil((jellyAmount * 14 / 4) * 1.05)
 
 		for (const i of [0, 5, 12, 17]) {
-			this.planetlist[i].team = 2
-			this.planetlist[i].einheiten = jellyAmount
+			this.bubbles[i].team = 2
+			this.bubbles[i].einheiten = jellyAmount
 		}
-		this.planetlist[0].x -= pushOut
-		this.planetlist[0].y -= pushOut
+		this.bubbles[0].x -= pushOut
+		this.bubbles[0].y -= pushOut
 
-		// this.planetlist[5].team = 2
-		// this.planetlist[5].einheiten = jellyAmount * 18 / 4
-		this.planetlist[5].x += pushOut
-		this.planetlist[5].y -= pushOut
+		this.bubbles[5].x += pushOut
+		this.bubbles[5].y -= pushOut
 
-		// this.planetlist[12].team = 2
-		// this.planetlist[12].einheiten = jellyAmount * 18 / 4
-		this.planetlist[12].x -= pushOut
-		this.planetlist[12].y += pushOut
+		this.bubbles[12].x -= pushOut
+		this.bubbles[12].y += pushOut
 
-		// this.planetlist[17].team = 2
-		// this.planetlist[17].einheiten = jellyAmount * 18 / 4
-		this.planetlist[17].x += pushOut
-		this.planetlist[17].y += pushOut
+		this.bubbles[17].x += pushOut
+		this.bubbles[17].y += pushOut
 
 	}
 
@@ -60,20 +53,11 @@ class room23 extends LevelRoom {
 		// TODO move effect? → Mixin
 		if (Math.random() < 0.3 ) {
 			// Move
-			let source = room.planetlist[Math.floor(Math.random() * room.planetlist.length)];
-			let target = room.planetlist[Math.floor(Math.random() * room.planetlist.length)];
-
-			// if (source.team !== target.team) {
-			// 	let amount = Math.round(Math.random() * 5)
-			// 	source.attackN(target, amount)
-			// }
+			let source = room.bubbles[Math.floor(Math.random() * room.bubbles.length)];
+			let target = room.bubbles[Math.floor(Math.random() * room.bubbles.length)];
 
 			let amount = Math.round(Math.random() * 10)
-			// let amount = 1
 			source.attackN(target, amount)
 		}
-
-
-		
 	}
 }

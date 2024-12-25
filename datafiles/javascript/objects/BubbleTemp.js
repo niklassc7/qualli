@@ -2,6 +2,7 @@ class BubbleTemp extends Bubble {
 	constructor(x, y, team, groesse, einheiten, ttl) {
 		super(x, y, team, groesse, einheiten);
 
+		// TODO dont randomize by default
 		if (ttl == undefined) {
 			this.totalTtl = 500 + Math.random() * 3000;
 		} else {
@@ -14,7 +15,7 @@ class BubbleTemp extends Bubble {
 		super.step();
 		this.ttl--;
 
-		// TODO delete if ttl over
+		// Delete if ttl over
 		if (this.ttl <= 0) {
 			room.destroyObject(this);
 		}

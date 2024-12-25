@@ -21,7 +21,7 @@ class room19 extends LevelRoom {
 				let newP = this.addObject(new Bubble(startMargin + j * planetDistance, 160 + i * planetDistance, newTeam));
 				newP.groesse = (i == 1) ? 2 : 1;
 				newP.einheiten = 10000;
-				this.planetlist[i * itemsInRow + j] = newP;
+				this.bubbles[i * itemsInRow + j] = newP;
 
 			}
 	}

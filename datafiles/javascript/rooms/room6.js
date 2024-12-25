@@ -15,27 +15,26 @@ class room6 extends LevelRoom {
 		let newP = this.addObject(new Bubble(hMargin, vMargin, 2));
 		newP.groesse = 3;
 		newP.einheiten = 30;
-		this.planetlist[0] = newP;
+		this.bubbles[0] = newP;
 
 		newP = this.addObject(new Bubble(hMargin, roomHeight - vMargin, 1));
 		newP.groesse = 3;
 		newP.einheiten = 30;
-		this.planetlist[1] = newP;
+		this.bubbles[1] = newP;
 
 		newP = this.addObject(new Bubble(roomWidth - hMargin, roomHeight - vMargin, 3));
 		newP.groesse = 3;
 		newP.einheiten = 30;
-		this.planetlist[2] = newP;
+		this.bubbles[2] = newP;
 
 		newP = this.addObject(new Bubble(roomWidth - hMargin, vMargin, 4));
 		newP.groesse = 3;
 		newP.einheiten = 30;
-		this.planetlist[3] = newP;
+		this.bubbles[3] = newP;
 
 		newP = this.addObject(new Bubble(roomWidth / 2, roomHeight / 2, 0));
 		newP.groesse = 1;
 		newP.einheiten = 20;
-		this.planetlist[4] = newP;
-
+		this.bubbles[4] = newP;
 	}
 }

@@ -22,20 +22,17 @@ class room25 extends LevelRoom {
 					continue;
 				}
 
-				// let newTeam = (j < itemsInRow / 2) ? 1 : 2;
 				let newTeam = 2
 				let newP = this.addObject(new Bubble(startMargin + j * planetDistance, 160 + i * planetDistance, newTeam));
 				// newP.groesse = (i == 1) ? 2 : 1;
 				newP.groesse = 1;
 				newP.einheiten = amount;
-				this.planetlist.push(newP)
-				// this.planetlist[i * itemsInRow + j] = newP;
-
+				this.bubbles.push(newP)
 			}
 
 		let newP = this.addObject(new Bubble(startMargin + 4 * planetDistance, 160 + 1 * planetDistance, 1));
 		newP.einheiten = 9.5 * amount;
 		newP.groesse = 7;
-		this.planetlist.push(newP);
+		this.bubbles.push(newP);
 	}
 }

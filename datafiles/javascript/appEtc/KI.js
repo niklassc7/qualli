@@ -31,34 +31,34 @@ class KI extends IObjlistentry {
 		return false;
 	}
 
-	getPlanetlist() {
-		var planetlist = [];
-		for(var i = 0; i < room.planetlist.length; i++) {
-			if(room.planetlist[i].team === this.team) {
-				planetlist[planetlist.length] = room.planetlist[i];
+	getBubbles() {
+		var bubbles = [];
+		for(var i = 0; i < room.bubbles.length; i++) {
+			if(room.bubbles[i].team === this.team) {
+				bubbles[bubbles.length] = room.bubbles[i];
 			}
 		}
-		return planetlist;
+		return bubbles;
 	}
 
 	getStrongestPlanet() {
-		var planetlist = this.getPlanetlist();
-		if(planetlist.length === 0) return;
+		var bubbles = this.getBubbles();
+		if(bubbles.length === 0) return;
 		var strongest_index = 0;
-			// Suche stärksten Planeten aus eigener planetlist aus.
-			for(var i = 0; i < planetlist.length; i++) {
-				if(planetlist[i].einheiten > planetlist[strongest_index].einheiten) {
+			// Suche stärksten Planeten aus eigener bubbles aus.
+			for(var i = 0; i < bubbles.length; i++) {
+				if(bubbles[i].einheiten > bubbles[strongest_index].einheiten) {
 					strongest_index = i;
 				}
 			}
-		return planetlist[strongest_index];
+		return bubbles[strongest_index];
 	}
 
 	getEnemyBubblesWeakerThan(n) {
 		var enemyList = [];
-		for(var i = 0; i < room.planetlist.length; i++) {
-			if(room.planetlist[i].team !== this.team && n > room.planetlist[i].einheiten) {
-				enemyList[enemyList.length] = room.planetlist[i];
+		for(var i = 0; i < room.bubbles.length; i++) {
+			if(room.bubbles[i].team !== this.team && n > room.bubbles[i].einheiten) {
+				enemyList[enemyList.length] = room.bubbles[i];
 			}
 		}
 		return enemyList;
@@ -88,7 +88,7 @@ class KI extends IObjlistentry {
 
 	deleteIfDefeatedAndCheckIfWon() {
 		// Wenn kein Planet und keine Raumschiffe mehr vorhanden sind, KI löschen, dann prüfen ob Spieler gewonnen.
-		if(this.getPlanetlist().length === 0) {
+		if(this.getBubbles().length === 0) {
 			/* Wenn kein Planet mehr da ist, aber noch Raumschiffe soll weder
 			* die KI gelöscht werden, noch der restliche Angriffsplan
 			* ausgeführt werden.

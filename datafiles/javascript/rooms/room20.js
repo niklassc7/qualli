@@ -22,7 +22,7 @@ class room20 extends LevelRoom {
 				let newP = this.addObject(new Bubble(startMargin + j * planetDistance, 160 + i * planetDistance, newTeam));
 				newP.groesse = (i == 1) ? 2 : 1;
 				newP.einheiten = 100;
-				this.planetlist[i * itemsInRow + j] = newP;
+				this.bubbles[i * itemsInRow + j] = newP;
 
 			}
 
@@ -45,7 +45,7 @@ class room20 extends LevelRoom {
 			let tmp_x = this.support_src_x
 			// let tmp_y = Math.random() * roomHeight
 			let tmp_y = -100
-			let tmp_ziel = room.planetlist[Math.floor(Math.random() * room.planetlist.length)]
+			let tmp_ziel = room.bubbles[Math.floor(Math.random() * room.bubbles.length)]
 			new Jelly(tmp_x, tmp_y, tmp_team, tmp_ziel)
 		}
 	}
@@ -55,10 +55,10 @@ class room20 extends LevelRoom {
 		let sum_team_1 = 0
 		let sum_team_2 = 0
 		
-		for(let i = 0; i < room.planetlist.length; i++) {
-			if(room.planetlist[i].team == 1)
+		for(let i = 0; i < room.bubbles.length; i++) {
+			if(room.bubbles[i].team == 1)
 				sum_team_1++
-			else if(room.planetlist[i].team == 2)
+			else if(room.bubbles[i].team == 2)
 				sum_team_2++
 		}
 

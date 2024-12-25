@@ -11,7 +11,7 @@ class LevelRoom extends Room {
 			throw new Error("Abstract classes can't be instantiated.");
 		}
 
-		this.planetlist = [];
+		this.bubbles = [];
 		this.KIlist = [];
 
 		this.background = undefined;
@@ -48,6 +48,14 @@ class LevelRoom extends Room {
 
 	draw(){
 		//do nothing
+	}
+
+	addBubble() {
+		
+	}
+
+	removeBubble() {
+		// TODO
 	}
 
 	surrender() {

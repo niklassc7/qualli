@@ -8,8 +8,6 @@ class room3 extends LevelRoom {
 		this.addObject(new KI0(3));
 		this.addObject(new KI0(4));
 
-		// 40
-
 		let planetDistance = 200; // centre to centre
 		let itemsInRow = 6;
 
@@ -21,7 +19,7 @@ class room3 extends LevelRoom {
 			for(let j = 0; j < itemsInRow; j++) {
 				let newP = this.addObject(new Bubble(startMargin + j * planetDistance, 160 + i * planetDistance, (i*3+j) % 5 ));
 				newP.groesse = 1;
-				this.planetlist[i * itemsInRow + j] = newP;
+				this.bubbles[i * itemsInRow + j] = newP;
 			}
 	}
 }

@@ -11,13 +11,13 @@ class KI2 extends KI {
 				if (this.deleteIfDefeatedAndCheckIfWon())
 					return;
 
-				// Get planetlist and calculate available jellies
-				let planetlist = this.getPlanetlist();
-				if(planetlist.length === 0)
+				// Get bubbles and calculate available jellies
+				let bubbles = this.getBubbles();
+				if(bubbles.length === 0)
 					return;
 				let avail = 0;
-				for (let i = 0; i < planetlist.length; i++)
-					avail += planetlist[i].einheiten * 0.75;
+				for (let i = 0; i < bubbles.length; i++)
+					avail += bubbles[i].einheiten * 0.75;
 
 				// Get list of enemy bubbles that are weaker than then available jellies
 				let attackList = this.getEnemyBubblesWeakerThan(avail);
@@ -39,9 +39,9 @@ class KI2 extends KI {
 				}
 
 				// attack
-				for (let i = 0; i < planetlist.length; i++) {
-					this.angriff(planetlist[i], bestTarget);
-					this.angriff(planetlist[i], bestTarget);
+				for (let i = 0; i < bubbles.length; i++) {
+					this.angriff(bubbles[i], bestTarget);
+					this.angriff(bubbles[i], bestTarget);
 				}
 
 				this.alarm[0] = 50 + Math.round(Math.random() * 100);

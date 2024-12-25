@@ -28,23 +28,20 @@ class room26 extends LevelRoom {
 				// newP.groesse = (i == 1) ? 2 : 1;
 				newP.groesse = 1;
 				newP.einheiten = amount;
-				this.planetlist.push(newP)
-				// this.planetlist[i * itemsInRow + j] = newP;
-
+				this.bubbles.push(newP)
 			}
 		
-		// this.planetlist[this.planetlist.length -1].team = 1;
-		this.planetlist[3].team = 1;
-		this.planetlist[3].einheiten = 300;
+		this.bubbles[3].team = 1;
+		this.bubbles[3].einheiten = 300;
 		
 		let newP = this.addObject(new Bubble(startMargin + 4 * planetDistance, 160 + 0 * planetDistance, 2));
 		newP.einheiten = 9.5 * amount;
 		newP.groesse = 7;
-		this.planetlist.push(newP);
+		this.bubbles.push(newP);
 
 		newP = this.addObject(new Bubble(startMargin + 4 * planetDistance, 160 + 2 * planetDistance, 3));
 		newP.einheiten = 9.5 * amount;
 		newP.groesse = 7;
-		this.planetlist.push(newP);
+		this.bubbles.push(newP);
 	}
 }
