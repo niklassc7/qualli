@@ -41,8 +41,8 @@ export default class ModDefend extends AiModule {
 	}
 
 	drawIcon(x, y, r) {
-		f.drawCircle(this.g.ctx, x, y, r, true);
-		this.g.ctx.fillStyle = "#5fbf20";
-		f.drawCircle(this.g.ctx, x, y, r, false);
+		this.g.painter.drawCircle(x, y, r, true);
+		this.g.painter.ctx.fillStyle = "#5fbf20";
+		this.g.painter.drawCircle(x, y, r, false);
 	}
 }

@@ -1,4 +1,3 @@
-import * as f from "../../functions.js";
 import AiModule from "./AiModule.js";
 import BubbleTemp from "../../objects/BubbleTemp.js";
 
@@ -39,8 +38,8 @@ export default class ModFleeTemp extends AiModule {
 	}
 
 	drawIcon(x, y, r) {
-		f.drawCircle(this.g.ctx, x, y, r, true);
-		this.g.ctx.fillStyle = "#ffdf20";
-		f.drawCircle(this.g.ctx, x, y, r, false);
+		this.g.painter.drawCircle(x, y, r, true);
+		this.g.painter.ctx.fillStyle = "#ffdf20";
+		this.g.painter.drawCircle(x, y, r, false);
 	}
 }

@@ -84,10 +84,10 @@ export default class RoomMenuMain extends Room {
 	draw() {
 		super.draw()
 
-		this.g.ctx.lineWidth = 4;
-		this.g.ctx.font = "42px fnt_Comforta_Light";
-		this.g.ctx.fillStyle = "white"
-		this.g.ctx.textAlign = "center";
-		this.g.ctx.fillText("Main 🐟", this.g.roomWidth/2, 32);
+		this.g.painter.ctx.lineWidth = 4;
+		this.g.painter.ctx.font = "42px fnt_Comforta_Light";
+		this.g.painter.ctx.fillStyle = "white"
+		this.g.painter.ctx.textAlign = "center";
+		this.g.painter.ctx.fillText("Main 🐟", this.g.roomWidth/2, 32);
 	}
 }

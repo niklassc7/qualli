@@ -1,5 +1,3 @@
-import * as f from "../functions.js";
-
 export default class RadarEffect extends Effect {
 	constructor(g, x, y, ttl, color) {
 		super(g, x, y, ttl);
@@ -17,12 +15,12 @@ export default class RadarEffect extends Effect {
 	draw() {
 		super.draw();
 
-		this.g.ctx.strokeStyle = this.color;
-		this.g.ctx.lineWidth = 4;
+		this.g.painter.ctx.strokeStyle = this.color;
+		this.g.painter.ctx.lineWidth = 4;
 
-		this.g.ctx.globalAlpha = this.relTtl();
-		f.drawCircle(this.g.ctx, this.x, this.y, this.radius, true)
-		this.g.ctx.globalAlpha = 1.0;
+		this.g.painter.ctx.globalAlpha = this.relTtl();
+		this.g.painter.strokeCircle(this.x, this.y, this.radius)
+		this.g.painter.ctx.globalAlpha = 1.0;
 	}
 
 	relTtl() {

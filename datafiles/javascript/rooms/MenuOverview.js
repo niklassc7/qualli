@@ -63,14 +63,14 @@ export default class MenuOverview extends Room{
 	draw() {
 		super.draw();
 
-		this.g.ctx.lineWidth = 4;
-		this.g.ctx.font = "125px fnt_Comforta_Light";
-		this.g.ctx.textAlign = "center";
+		this.g.painter.ctx.lineWidth = 4;
+		this.g.painter.ctx.font = "125px fnt_Comforta_Light";
+		this.g.painter.ctx.textAlign = "center";
 		let tx = this.g.roomWidth/2;
 		let ty = 100;
-		this.g.ctx.strokeStyle = "#333"
-		this.g.ctx.strokeText("Overview", tx + 2, ty + 2);
-		this.g.ctx.strokeStyle = "white"
-		this.g.ctx.strokeText("Overview", tx, ty);
+		this.g.painter.ctx.strokeStyle = "#333"
+		this.g.painter.ctx.strokeText("Overview", tx + 2, ty + 2);
+		this.g.painter.ctx.strokeStyle = "white"
+		this.g.painter.ctx.strokeText("Overview", tx, ty);
 	}
 }

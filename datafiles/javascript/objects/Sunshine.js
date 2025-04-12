@@ -1,5 +1,4 @@
 import GameEntity from "../parapluie/objects/GameEntity.js";
-import * as f from "../functions.js";
 
 export default class Sunshine extends GameEntity {
 	constructor(g, x, y) {
@@ -28,14 +27,14 @@ export default class Sunshine extends GameEntity {
 
 	draw() {
 		super.draw();
-		this.g.ctx.lineWidth = 140;
+		this.g.painter.ctx.lineWidth = 140;
 
 		for (let i = -this.ne; i < this.ne; i++) {
 			let a = 0.02 + this.dAlphaMod[i+this.ne]*0.06;
-			this.g.ctx.strokeStyle = `rgba(255, 230, 150, ${a})`;
+			this.g.painter.ctx.strokeStyle = `rgba(255, 230, 150, ${a})`;
 
 			let d = this.g.roomWidth / (2*this.ne);
-			f.drawLine(this.g.ctx, this.x, this.y, this.x + i*d*1.2, this.g.roomHeight-0);
+			this.g.painter.strokeLine(this.x, this.y, this.x + i*d*1.2, this.g.roomHeight-0);
 		}
 	}
 }

@@ -34,18 +34,18 @@ export default class KI extends GameEntity {
 	// TODO Room should draw symbols
 	draw() {
 		// console.log(this.team);
-		this.g.ctx.fillStyle = Colors.team[this.team].cRgba();
-		this.g.ctx.strokeStyle = "rgba(50, 50, 50, 0.6)";
+		this.g.painter.ctx.fillStyle = Colors.team[this.team].cRgba();
+		this.g.painter.ctx.strokeStyle = "rgba(50, 50, 50, 0.6)";
 		let linew = 2;
-		this.g.ctx.lineWidth = linew;
+		this.g.painter.ctx.lineWidth = linew;
 		let symbolx = (32 + (this.team - 2) * 48);
 		let symboly = 32;
 		let r = 16;
-		f.drawCircle(this.g.ctx, symbolx, symboly, r, false);
-		f.drawCircle(this.g.ctx, symbolx, symboly, r, true);
+		this.g.painter.fillCircle(symbolx, symboly, r);
+		this.g.painter.strokeCircle(symbolx, symboly, r);
 
-		this.g.ctx.fillStyle = "rgba(50, 50, 50, 0.9)";
-		this.g.ctx.fillText(this.constructor.name, symbolx, symboly);
+		this.g.painter.ctx.fillStyle = "rgba(50, 50, 50, 0.9)";
+		this.g.painter.ctx.fillText(this.constructor.name, symbolx, symboly);
 
 		// Modules
 		for (let i = 0; i < this.modules.length; i++) {

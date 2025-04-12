@@ -1,6 +1,7 @@
 import SpriteEntity from "../../parapluie/objects/SpriteEntity.js";
 import LevelRoom from "../../rooms/LevelRoom.js";
 import * as f from "../../functions.js";
+import * as graphics from "../../parapluie/functions/graphics.js";
 
 export default class SimBubble extends SpriteEntity {
 	// TODO Is this ever cleared? On room change?
@@ -40,11 +41,11 @@ export default class SimBubble extends SpriteEntity {
 
 		ctx.strokeStyle = "rgba(220, 220, 250, 0.3)";
 		ctx.lineWidth = 4;
-		f.drawCircle(ctx, this.r, this.r, this.r, true);
+		graphics.strokeCircle(ctx, this.r, this.r, this.r);
 
 
 		ctx.fillStyle = "rgba(220, 220, 250, 0.05)";
-		f.drawCircle(ctx, this.r, this.r, this.r, false);
+		graphics.fillCircle(ctx, this.r, this.r, this.r);
 
 
 		let lineNum = 5;
@@ -54,15 +55,12 @@ export default class SimBubble extends SpriteEntity {
 			ctx.strokeStyle = `rgba(${this.basecolor[0]}, ${this.basecolor[1]}, ${this.basecolor[2]}, ${alpha})`;
 			let lineWidth = 1;
 			ctx.lineWidth = lineWidth;
-			f.drawCircle(ctx, this.r, this.r, this.r - i*(lineWidth*2), true);
-			f.drawCircle(ctx, this.r, this.r, this.r + i*(lineWidth*2), true);
+			graphics.strokeCircle(ctx, this.r, this.r, this.r - i*(lineWidth*2));
+			graphics.strokeCircle(ctx, this.r, this.r, this.r + i*(lineWidth*2));
 		}
 
 		
 		ctx.translate(-8, -8); // TODO
-		// ctx.strokeStyle = "red";
-		// ctx.lineWidth = 1;
-		// ctx.strokeRect(0, 0, canvas.width, canvas.height);
 	}
 
 	destroy() {

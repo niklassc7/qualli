@@ -1,2 +1,0 @@
-// TODO remove all globals
-

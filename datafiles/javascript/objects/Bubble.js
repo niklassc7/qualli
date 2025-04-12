@@ -1,6 +1,5 @@
 import Base from "./bases/Base.js";
 import Colors from "../appEtc/color/Colors.js";
-import * as f from "../functions.js";
 import LinkedList from "../parapluie/LinkedList/LinkedList.js";
 import Jelly from "./Jelly.js";
 import Color from "../appEtc/color/Color.js";
@@ -53,46 +52,45 @@ export default class Bubble extends Base {
 		// Team colour
 		// if(this.team !== 0) {
 			let c = Colors.team[this.team];
-			this.g.ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, 0.3`;
+			this.g.painter.ctx.fillStyle = `rgba(${c.r}, ${c.g}, ${c.b}, 0.3`;
 			let black = new Color(0, 0, 0)
 			let darkBorderC = c.getMix(black, 0.9);
 			darkBorderC.a = 0.7;
-			// ctx.strokeStyle = "rgba(0, 0, 0, 0.7)";
-			this.g.ctx.strokeStyle = darkBorderC.cRgba();
+			this.g.painter.ctx.strokeStyle = darkBorderC.cRgba();
 
 			if(this.team === 0) {
-				// g.ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+				// g.painter.ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
 			} else {
 			}
-				this.g.ctx.lineWidth = Math.round(2 * 2); // TODO
-				f.drawCircle(this.g.ctx, this.x, this.y, this.width / 2, false);
+				this.g.painter.ctx.lineWidth = Math.round(2 * 2); // TODO
+				this.g.painter.fillCircle(this.x, this.y, this.width / 2);
 
-			f.drawCircle(this.g.ctx, this.x, this.y, this.width / 2, true);
+			this.g.painter.strokeCircle(this.x, this.y, this.width / 2);
 		// }
 
 
 		// Units {{{
-		this.g.ctx.textBaseline = "middle";
-		this.g.ctx.textAlign = "center";
+		this.g.painter.ctx.textBaseline = "middle";
+		this.g.painter.ctx.textAlign = "center";
 		// const fsize = 32;
 		const fsize = 28 + 4*this.size;
 
-		// g.ctx.fillStyle = "#3c3f41";
-		this.g.ctx.fillStyle = "#eceff1";
-		this.g.ctx.fillStyle = "rgba(245, 255, 245, 0.8)";
+		// g.painter.ctx.fillStyle = "#3c3f41";
+		this.g.painter.ctx.fillStyle = "#eceff1";
+		this.g.painter.ctx.fillStyle = "rgba(245, 255, 245, 0.8)";
 		// if (this.team !== 0)
-			// g.ctx.fillStyle = Colors.team[this.team].cRgba();
-		this.g.ctx.font = Math.round(fsize) + "px fnt_Comforta_Bold";
-		this.g.ctx.fillText(Math.floor(this.units), this.x, this.y);
+			// g.painter.ctx.fillStyle = Colors.team[this.team].cRgba();
+		this.g.painter.ctx.font = Math.round(fsize) + "px fnt_Comforta_Bold";
+		this.g.painter.ctx.fillText(Math.floor(this.units), this.x, this.y);
 		// }}}
 
 		// Queue
 		if (!this.createQueue.isEmpty()) {
-			this.g.ctx.fillStyle = Colors.team[this.team].cRgb();
-			this.g.ctx.font = "18px fnt_Comforta_Bold";
-			this.g.ctx.textBaseline = "middle";
-			this.g.ctx.textAlign = "center";
-			this.g.ctx.fillText(this.createQueue.size, this.x, this.y + 32);
+			this.g.painter.ctx.fillStyle = Colors.team[this.team].cRgb();
+			this.g.painter.ctx.font = "18px fnt_Comforta_Bold";
+			this.g.painter.ctx.textBaseline = "middle";
+			this.g.painter.ctx.textAlign = "center";
+			this.g.painter.ctx.fillText(this.createQueue.size, this.x, this.y + 32);
 		}
 	}
 

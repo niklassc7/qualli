@@ -1,7 +1,6 @@
 import LevelRoom from "./LevelRoom.js";
 import Bubble from "../objects/Bubble.js";
 import KI0 from "../appEtc/KI0.js";
-import * as g from "../globals.js";
 
 export default class room3 extends LevelRoom {
 	constructor(g) {

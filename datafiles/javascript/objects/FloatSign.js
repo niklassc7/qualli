@@ -34,19 +34,19 @@ export default class FloatSign extends PhysicalEntity {
 	}
 
 	draw() {
-		this.g.ctx.font = this.font;
+		this.g.painter.ctx.font = this.font;
 
 		// Text
-		this.g.ctx.lineWidth = 4;
-		this.g.ctx.fillStyle = this.color;
-		this.g.ctx.strokeStyle = this.background;
+		this.g.painter.ctx.lineWidth = 4;
+		this.g.painter.ctx.fillStyle = this.color;
+		this.g.painter.ctx.strokeStyle = this.background;
 
-		this.g.ctx.globalAlpha = this.ttl / this.startTtl;
+		this.g.painter.ctx.globalAlpha = this.ttl / this.startTtl;
 		
-		this.g.ctx.strokeText(this.text, this.x, this.y);
-		this.g.ctx.fillText(this.text, this.x, this.y);
+		this.g.painter.ctx.strokeText(this.text, this.x, this.y);
+		this.g.painter.ctx.fillText(this.text, this.x, this.y);
 
-		this.g.ctx.globalAlpha = 1;
+		this.g.painter.ctx.globalAlpha = 1;
 	}
 }
 

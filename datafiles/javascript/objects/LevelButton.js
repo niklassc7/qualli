@@ -31,7 +31,7 @@ export default class LevelButton extends Button {
 		let mHeight = 32; // Medal height → keep aspect ratio of sprite
 		let mMargin = 6;
 		if (this.medal != undefined) {
-			this.g.ctx.drawImage(this.medal,
+			this.g.painter.ctx.drawImage(this.medal,
 				this.x + this.width - mWidth - mMargin,
 				this.y + mMargin,
 				mWidth,

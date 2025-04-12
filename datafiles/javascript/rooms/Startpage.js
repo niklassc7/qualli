@@ -30,10 +30,10 @@ export default class Startpage extends Room {
 		super.draw();
 
 		// Title
-		this.g.ctx.strokeStyle = "#ffffff";
-		this.g.ctx.font = "175px fnt_Comforta_Light";
-		this.g.ctx.textAlign = "center";
-		this.g.ctx.lineWidth = 8;
+		this.g.painter.ctx.strokeStyle = "#ffffff";
+		this.g.painter.ctx.font = "175px fnt_Comforta_Light";
+		this.g.painter.ctx.textAlign = "center";
+		this.g.painter.ctx.lineWidth = 8;
 		let fill = 0.9
 
 		let animationN = 16
@@ -44,19 +44,19 @@ export default class Startpage extends Room {
 		blur = blur / (animationN/2)
 		blur = 2 + 4*blur
 
-		this.g.ctx.filter = `blur(${blur}px)`;
+		this.g.painter.ctx.filter = `blur(${blur}px)`;
 
 		// Blur
-		this.g.ctx.strokeStyle = `rgba(210, 230, 255, ${fill})`;
-		this.g.ctx.filter = "none";
+		this.g.painter.ctx.strokeStyle = `rgba(210, 230, 255, ${fill})`;
+		this.g.painter.ctx.filter = "none";
 
 
 		// Shadow
-		this.g.ctx.fillStyle = `rgba(100, 100, 100, ${fill})`;
-		this.g.ctx.fillText("Qualli", this.g.roomWidth/2 + 4, 148 + 4);
+		this.g.painter.ctx.fillStyle = `rgba(100, 100, 100, ${fill})`;
+		this.g.painter.ctx.fillText("Qualli", this.g.roomWidth/2 + 4, 148 + 4);
 
 		// Gradient
-		const grad = this.g.ctx.createLinearGradient(300, 0, (this.g.roomWidth-300), (500 + blur*100));
+		const grad = this.g.painter.ctx.createLinearGradient(300, 0, (this.g.roomWidth-300), (500 + blur*100));
 		// grad.addColorStop(0, "#b8f0ec");
 		// grad.addColorStop(1, "#139964");
 
@@ -67,24 +67,24 @@ export default class Startpage extends Room {
 		grad.addColorStop(1, "#125B9D");
 
 		// Main text
-		this.g.ctx.fillStyle = grad;
-		this.g.ctx.fillText("Qualli", this.g.roomWidth/2, 148);
+		this.g.painter.ctx.fillStyle = grad;
+		this.g.painter.ctx.fillText("Qualli", this.g.roomWidth/2, 148);
 
 		this.n_step++; // TODO remove
 
 
 		// TODO remove
 		if (Settings.debug) {
-			this.g.ctx.lineWidth = 5;
-			this.g.ctx.strokeStyle = 'white';
-			this.g.ctx.fillStyle = "white";
+			this.g.painter.ctx.lineWidth = 5;
+			this.g.painter.ctx.strokeStyle = 'white';
+			this.g.painter.ctx.fillStyle = "white";
 			for(var i = 0; i < 5; i++){
-				this.g.ctx.beginPath();
-				this.g.ctx.arc(this.g.roomWidth / 2, this.g.roomHeight - 64, i * ((this.g.ctx.lineWidth-1)*2), (this.n_step* (i*0.01+0.1)) + 1.25 * Math.PI, (this.n_step*(i*0.01+0.1)) + 1.75 * Math.PI, false);
-				this.g.ctx.stroke();
-				this.g.ctx.beginPath();
-				this.g.ctx.arc(this.g.roomWidth / 2, this.g.roomHeight - 64, this.g.ctx.lineWidth+i * ((this.g.ctx.lineWidth-1)*2), -(this.n_step* (i*0.01+0.1)) + 1.25 * Math.PI, -(this.n_step*(i*0.01+0.1)) + 1.75 * Math.PI, false);
-				this.g.ctx.stroke();
+				this.g.painter.ctx.beginPath();
+				this.g.painter.ctx.arc(this.g.roomWidth / 2, this.g.roomHeight - 64, i * ((this.g.painter.ctx.lineWidth-1)*2), (this.n_step* (i*0.01+0.1)) + 1.25 * Math.PI, (this.n_step*(i*0.01+0.1)) + 1.75 * Math.PI, false);
+				this.g.painter.ctx.stroke();
+				this.g.painter.ctx.beginPath();
+				this.g.painter.ctx.arc(this.g.roomWidth / 2, this.g.roomHeight - 64, this.g.painter.ctx.lineWidth+i * ((this.g.painter.ctx.lineWidth-1)*2), -(this.n_step* (i*0.01+0.1)) + 1.25 * Math.PI, -(this.n_step*(i*0.01+0.1)) + 1.75 * Math.PI, false);
+				this.g.painter.ctx.stroke();
 			}
 		}
 	}

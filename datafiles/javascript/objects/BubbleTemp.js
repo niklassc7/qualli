@@ -60,15 +60,15 @@ export default class BubbleTemp extends Bubble {
 		super.draw();
 
 		// Draw circle-indicator of left ttl
-		this.g.ctx.lineWidth = 3;
-		this.g.ctx.strokeStyle = 'black';
-		this.g.ctx.beginPath();
-		this.g.ctx.arc(this.x,
+		this.g.painter.ctx.lineWidth = 3;
+		this.g.painter.ctx.strokeStyle = 'black';
+		this.g.painter.ctx.beginPath();
+		this.g.painter.ctx.arc(this.x,
 			this.y,
 			1.1 * this.width / 2,
 			2.0 * Math.PI * ((this.totalTtl-this.ttl)/this.totalTtl),
 			2.0 * Math.PI);
 
-		this.g.ctx.stroke();
+		this.g.painter.ctx.stroke();
 	}
 }

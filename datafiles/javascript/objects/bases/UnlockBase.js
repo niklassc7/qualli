@@ -63,13 +63,12 @@ export default class UnlockBase extends Base {
 	draw() {
 		super.draw();
 
-		this.g.ctx.textBaseline = "middle";
-		this.g.ctx.textAlign = "center";
-		// const fsize = 28 + 4*this.size;
+		this.g.painter.ctx.textBaseline = "middle";
+		this.g.painter.ctx.textAlign = "center";
 
-		this.g.ctx.fillStyle = "#eceff1";
-		this.g.ctx.fillStyle = "rgba(245, 255, 245, 0.8)";
-		this.g.ctx.font = "42px fnt_Comforta_Bold";
-		this.g.ctx.fillText(Math.floor(this.units), this.x, this.y);
+		this.g.painter.ctx.fillStyle = "#eceff1";
+		this.g.painter.ctx.fillStyle = "rgba(245, 255, 245, 0.8)";
+		this.g.painter.ctx.font = "42px fnt_Comforta_Bold";
+		this.g.painter.ctx.fillText(Math.floor(this.units), this.x, this.y);
 	}
 }
